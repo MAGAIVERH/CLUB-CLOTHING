@@ -1,4 +1,5 @@
 {
-  "*.ts": ["yarn eslint --ext .ts --fix", "git add ."],
-  "*.tsx": ["yarn eslint --ext .tsx --fix", "git add ."]
+  "*.js": ["yarn eslint --fix", "git add ."],
+  "*.ts": ["yarn eslint --fix", "git add ."],
+  "*.tsx": ["yarn eslint --fix", "git add ."]
 }
