@@ -5,7 +5,7 @@ import { getDocs, collection } from 'firebase/firestore'
 import CategoryItem from '../category-item/category-item-component'
 
 // Styles
-import './categories.styles.css'
+
 import { CategoriesContainer, CategoriesContent } from './categories.styles'
 
 // Utilities
