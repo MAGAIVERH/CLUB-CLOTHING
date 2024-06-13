@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { onAuthStateChanged } from 'firebase/auth'
-import { FunctionComponent, useContext } from 'react'
+import { FunctionComponent, useContext, useState } from 'react'
 import { collection, getDocs, query, where } from 'firebase/firestore'
 
 //Pages
@@ -14,15 +14,17 @@ import { UserContext } from './contexts/user.context'
 import User from './types/user.types'
 
 const App: FunctionComponent = () => {
+  const [isInitializing, setIsInitializing] = useState(true)
+
   const { isAuthenticated, loginUser, logoutUser } = useContext(UserContext)
 
   onAuthStateChanged(auth, async (user) => {
     // Se o usuario estiver logado no contexto, e o usuario o firebase (sign out)
     // devemos limpar o contexto (sign out)
-
     const isSignOut = isAuthenticated && !user
     if (isSignOut) {
-      return logoutUser()
+      logoutUser()
+      return setIsInitializing(false)
     }
 
     // Se o usuario for nulo no contexto, e noa for nulo no firebase
@@ -35,11 +37,13 @@ const App: FunctionComponent = () => {
 
       const userFromFireStore = querySnapshot.docs[0]?.data()
 
-      return loginUser(userFromFireStore as User)
+      loginUser(userFromFireStore as User)
+      return setIsInitializing(false)
     }
+    return setIsInitializing(false)
   })
 
-  console.log({ isAuthenticated })
+  if (isInitializing) return null
 
   return (
     <BrowserRouter>
