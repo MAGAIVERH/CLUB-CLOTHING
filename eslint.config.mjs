@@ -26,7 +26,8 @@ export default [
     },
     rules: {
       'react/react-in-jsx-scope': 'off', // Desativa a regra de React em escopo
-      '@typescript-eslint/no-unused-vars': 'warn' // Ajusta a regra para aviso
+      '@typescript-eslint/no-unused-vars': 'warn', // Ajusta a regra para aviso
+      '@typescript-eslint/no-explicit-any': 'error' // Adiciona a regra de no-explicit-any
     }
   }
 ]
