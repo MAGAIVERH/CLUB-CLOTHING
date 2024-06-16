@@ -8,9 +8,10 @@ import { CategoryContext } from '../../contexts/category.context'
 
 // Components
 import CategoryOverview from '../category-overview/category-overview-component'
+import Loading from '../loading/loading.component'
 
 const CategoriesOverview: FunctionComponent = () => {
-  const { categories, fetchCategories } = useContext(CategoryContext)
+  const { categories, fetchCategories, isLoading } = useContext(CategoryContext)
 
   useEffect(() => {
     if (categories.length === 0) {
@@ -18,6 +19,9 @@ const CategoriesOverview: FunctionComponent = () => {
     }
   }, [])
 
+  if (isLoading) {
+    return <Loading />
+  }
   return (
     <Container>
       {categories.map((category) => (
