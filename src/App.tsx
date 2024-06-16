@@ -11,7 +11,7 @@ import SignUpPage from './pages/sign-up/sign-up.page'
 // Utilities
 import { auth, db } from './config/firebase.config'
 import { UserContext } from './contexts/user.context'
-import User from './types/user.types'
+import { userConverter } from './converters/firestore-converters'
 
 const App: FunctionComponent = () => {
   const [isInitializing, setIsInitializing] = useState(true)
@@ -32,12 +32,15 @@ const App: FunctionComponent = () => {
     const isSignIn = !isAuthenticated && user
     if (isSignIn) {
       const querySnapshot = await getDocs(
-        query(collection(db, 'user'), where('id', '==', user.uid))
+        query(
+          collection(db, 'user').withConverter(userConverter),
+          where('id', '==', user.uid)
+        )
       )
 
       const userFromFireStore = querySnapshot.docs[0]?.data()
 
-      loginUser(userFromFireStore as User)
+      loginUser(userFromFireStore)
       return setIsInitializing(false)
     }
     return setIsInitializing(false)
