@@ -8,11 +8,13 @@ import HomePage from './pages/home/home.page'
 import LoginPage from './pages/login/login.page'
 import SignUpPage from './pages/sign-up/sign-up.page'
 
+// Components
+import Loading from './components/loading/loading.component'
+
 // Utilities
 import { auth, db } from './config/firebase.config'
 import { UserContext } from './contexts/user.context'
 import { userConverter } from './converters/firestore-converters'
-import Loading from './components/loading/loading.component'
 
 const App: FunctionComponent = () => {
   const [isInitializing, setIsInitializing] = useState(true)
