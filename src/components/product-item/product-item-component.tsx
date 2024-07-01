@@ -14,7 +14,7 @@ interface ProductItemProps {
   product: Product
 }
 
-const ProdcutItem: FunctionComponent<ProductItemProps> = ({ product }) => {
+const ProductItem: FunctionComponent<ProductItemProps> = ({ product }) => {
   return (
     <ProductContainer>
       <ProductImage imageUrl={product.imageUrl} />
@@ -27,4 +27,4 @@ const ProdcutItem: FunctionComponent<ProductItemProps> = ({ product }) => {
   )
 }
 
-export default ProdcutItem
+export default ProductItem
