@@ -10,7 +10,7 @@ import {
   signInWithPopup
 } from 'firebase/auth'
 import { useEffect, useContext, useState } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 // Components
 import CustomButton from '../../components/custom-button/custom-button-component'

@@ -19,6 +19,7 @@ import { auth, db } from './config/firebase.config'
 import { UserContext } from './contexts/user.context'
 import { userConverter } from './converters/firestore-converters'
 import CheckoutPage from './pages/checkout/checkout.page'
+import Authentication from './guards/authentication.guards'
 
 const App: FunctionComponent = () => {
   const [isInitializing, setIsInitializing] = useState(true)
@@ -61,7 +62,14 @@ const App: FunctionComponent = () => {
         <Route path='/' element={<HomePage />} />
         <Route path='/explore' element={<ExplorePage />} />
         <Route path='category/:id' element={<CategoryDetailsPage />} />
-        <Route path='/checkout' element={<CheckoutPage />} />
+        <Route
+          path='/checkout'
+          element={
+            <Authentication>
+              <CheckoutPage />
+            </Authentication>
+          }
+        />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/sign-up' element={<SignUpPage />} />
       </Routes>
