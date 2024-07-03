@@ -13,6 +13,7 @@ export const LoadingContainer = styled.div`
   justify-content: center;
   display: flex;
   flex-direction: column;
+  z-index: 100;
 
   p {
     color: ${Colors.text.white};
