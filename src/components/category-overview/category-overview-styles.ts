@@ -11,6 +11,10 @@ export const CategoryTitle = styled.p`
   font-size: 21px;
   font-weight: 500;
   margin-bottom: 5px;
+
+  @media (max-width: 768px) {
+    margin-left: 25px;
+  }
 `
 
 export const ProductsContainer = styled.div`
@@ -18,4 +22,10 @@ export const ProductsContainer = styled.div`
   width: 100%;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    grid-row-gap: 20px;
+  }
 `
