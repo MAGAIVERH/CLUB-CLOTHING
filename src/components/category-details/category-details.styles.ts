@@ -13,6 +13,11 @@ export const CategoryTitle = styled.div`
     font-size: 21px;
     font-weight: 500;
   }
+
+  @media (max-width: 768px) {
+    margin-left: 50px;
+    margin-bottom: 15px;
+  }
 `
 
 export const ProductsContainer = styled.div`
@@ -21,6 +26,13 @@ export const ProductsContainer = styled.div`
   justify-items: start;
   margin-top: 5px;
   grid-row-gap: 20px;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+  }
 `
 
 export const IconContainer = styled.div`
