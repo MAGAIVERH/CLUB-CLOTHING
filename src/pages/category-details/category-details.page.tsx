@@ -13,7 +13,7 @@ const CategoryDetailsPage: FunctionComponent = () => {
   return (
     <>
       <Header />
-      <CategoryDetails categoryId={id} />
+      <CategoryDetails categoryId={id} /> 
     </>
   )
 }
